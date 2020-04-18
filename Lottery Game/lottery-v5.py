@@ -1,4 +1,4 @@
-import random
+from random import sample
 
 def main():
   input("WELCOME TO THE LOTTERY!!! >>> ")
@@ -29,7 +29,8 @@ def play_lotto():
   
   input(f"You have chosen {game_setting[1]} >>> ")
   ticket = get_ticket(game_setting[0])
-  print(f"Your ticket: {ticket}")
+  draw = sample(range(1, game_setting[0] + 1), 6)
+  print(f"Your ticket: {ticket}\nThe draw: {draw}")
 
 def get_ticket(num_range):
   input("Time to enter your lotto numbers >>> ")
