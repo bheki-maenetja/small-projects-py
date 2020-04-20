@@ -1,0 +1,3 @@
+{"ice-cream": 6.75, "gurro": 2.25, "name": "desserts", "gcake": 11.9, "chocolate gudge": 6.3}
+{"name": "drinks", "goke": 0.0, "gepsi": 4.55}
+{"gsnail": 67.85, "name": "food"}

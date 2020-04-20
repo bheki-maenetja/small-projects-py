@@ -1,0 +1,3 @@
+{"lion loin steak": 125.35, "name": "food", "rhino ribs": 349.95}
+{"name": "drinks", "python potion": 89.7, "beluga blood": 54.95, "bird beer": 24.95}
+{"name": "desserts", "chocolate moose": 14.9, "toucan cannabis": 50.0}
