@@ -9,6 +9,8 @@ pylint = "*"
 [packages]
 cloudinary = "*"
 requests = "*"
+tabulate = "*"
+natural = "*"
 
 [requires]
 python_version = "3.8"
