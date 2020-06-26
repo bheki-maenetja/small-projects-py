@@ -1,3 +1,4 @@
+from random import shuffle, choice
 
 # CLASSES
 
@@ -34,8 +35,12 @@ class Card():
 # Main Functions
 def main(): # the main game function
   main_deck = get_card_deck()
-  for card in main_deck:
-    print(card)
+  shuffled_deck = main_deck[:]
+  shuffle(shuffled_deck)
+  player_cards, comp_cards, stack, pile = assign_cards(shuffled_deck)
+  print(len(player_cards), len(comp_cards), len(stack), len(pile))
+  print(len(main_deck))
+
 
 # Utility Functions
 def get_card_deck():
@@ -51,6 +56,17 @@ def get_card_deck():
     card_deck.append(new_joker)
   
   return card_deck
+
+def assign_cards(card_deck):
+  player_cards, comp_cards = [], []
+  for deck in (player_cards, comp_cards):
+    for i in range(8):
+      new_card = card_deck.pop()
+      deck.append(new_card)
+  
+  pile = [card_deck.pop()]
+  stack = card_deck
+  return player_cards, comp_cards, stack, pile
 
 # Function Calls
 main()
