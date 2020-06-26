@@ -38,8 +38,24 @@ def main(): # the main game function
   shuffled_deck = main_deck[:]
   shuffle(shuffled_deck)
   player_cards, comp_cards, stack, pile = assign_cards(shuffled_deck)
-  print(len(player_cards), len(comp_cards), len(stack), len(pile))
-  print(len(main_deck))
+  for card in main_deck:
+    list_count = 0
+    for item in (player_cards, comp_cards, stack, pile):
+      if card in item:
+        list_count += 1
+    print(card, list_count)
+  input("Player cards >>> ")
+  for card in player_cards:
+    print(card)
+  input("Computer cards >>> ")
+  for card in comp_cards:
+    print(card)
+  input("The Pile >>> ")
+  for card in pile:
+    print(card)
+  input("The Stack >>> ")
+  for card in stack:
+    print(card)
 
 
 # Utility Functions
@@ -64,7 +80,15 @@ def assign_cards(card_deck):
       new_card = card_deck.pop()
       deck.append(new_card)
   
-  pile = [card_deck.pop()]
+  while True:
+    new_card = card_deck.pop()
+    if not new_card.is_power:
+      pile = [new_card]
+      break
+    else:
+      card_deck.append(new_card)
+      shuffle(card_deck)
+
   stack = card_deck
   return player_cards, comp_cards, stack, pile
 
