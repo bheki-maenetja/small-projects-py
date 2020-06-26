@@ -38,12 +38,9 @@ def main(): # the main game function
   shuffled_deck = main_deck[:]
   shuffle(shuffled_deck)
   player_cards, comp_cards, stack, pile = assign_cards(shuffled_deck)
-  for card in main_deck:
-    list_count = 0
-    for item in (player_cards, comp_cards, stack, pile):
-      if card in item:
-        list_count += 1
-    print(card, list_count)
+  
+  test_cards(main_deck, player_cards, comp_cards, stack, pile)
+
   input("Player cards >>> ")
   for card in player_cards:
     print(card)
@@ -91,6 +88,14 @@ def assign_cards(card_deck):
 
   stack = card_deck
   return player_cards, comp_cards, stack, pile
+
+def test_cards(main_deck, player_cards, comp_cards, stack, pile): # checks to see if there are any cards in more than one place
+  for card in main_deck:
+    list_count = 0
+    for item in (player_cards, comp_cards, stack, pile):
+      if card in item:
+        list_count += 1
+    print(card, list_count)
 
 # Function Calls
 main()
