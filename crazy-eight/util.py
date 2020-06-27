@@ -27,3 +27,16 @@ def test_cards(main_deck, player_cards, comp_cards, stack, pile): # checks to se
       if card in item:
         list_count += 1
     print(card, list_count)
+
+# User Input
+def get_integer(min_value, max_value, input_prompt):
+  while True:
+    try:
+      number = int(input(f"{input_prompt}: "))
+      if number not in range(min_value, max_value + 1): raise ValueError
+    except ValueError:
+      print(f"Please enter a number between {min_value} and {max_value}!")
+    else:
+      break
+  
+  return number
