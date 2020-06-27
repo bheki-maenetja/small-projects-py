@@ -1,7 +1,7 @@
 from random import shuffle, choice
+import util
 
 # CLASSES
-
 class Card():
 
   card_names = {
@@ -37,25 +37,10 @@ def main(): # the main game function
   main_deck = get_card_deck()
   shuffled_deck = main_deck[:]
   shuffle(shuffled_deck)
-  player_cards, comp_cards, stack, pile = assign_cards(shuffled_deck)
-  
-  test_cards(main_deck, player_cards, comp_cards, stack, pile)
+  player_cards, comp_cards, stack, pile = util.assign_cards(shuffled_deck)
+  util.test_cards(main_deck, player_cards, comp_cards, stack, pile)
 
-  input("Player cards >>> ")
-  for card in player_cards:
-    print(card)
-  input("Computer cards >>> ")
-  for card in comp_cards:
-    print(card)
-  input("The Pile >>> ")
-  for card in pile:
-    print(card)
-  input("The Stack >>> ")
-  for card in stack:
-    print(card)
-
-
-# Utility Functions
+# Other Game Functions
 def get_card_deck():
   card_deck = []
 
@@ -69,33 +54,6 @@ def get_card_deck():
     card_deck.append(new_joker)
   
   return card_deck
-
-def assign_cards(card_deck):
-  player_cards, comp_cards = [], []
-  for deck in (player_cards, comp_cards):
-    for i in range(8):
-      new_card = card_deck.pop()
-      deck.append(new_card)
-  
-  while True:
-    new_card = card_deck.pop()
-    if not new_card.is_power:
-      pile = [new_card]
-      break
-    else:
-      card_deck.append(new_card)
-      shuffle(card_deck)
-
-  stack = card_deck
-  return player_cards, comp_cards, stack, pile
-
-def test_cards(main_deck, player_cards, comp_cards, stack, pile): # checks to see if there are any cards in more than one place
-  for card in main_deck:
-    list_count = 0
-    for item in (player_cards, comp_cards, stack, pile):
-      if card in item:
-        list_count += 1
-    print(card, list_count)
 
 # Function Calls
 main()
