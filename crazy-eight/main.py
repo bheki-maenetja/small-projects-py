@@ -38,7 +38,21 @@ def main(): # the main game function
   shuffled_deck = main_deck[:]
   shuffle(shuffled_deck)
   player_cards, comp_cards, stack, pile = util.assign_cards(shuffled_deck)
-  util.test_cards(main_deck, player_cards, comp_cards, stack, pile)
+  # util.test_cards(main_deck, player_cards, comp_cards, stack, pile)
+
+  current_card = pile[-1]
+  current_suite = pile[-1].suite
+  is_player_turn = True
+
+  print_game_board(len(player_cards), len(comp_cards), current_card)
+
+  while True:
+    # Process Input (events)
+    if len(player_cards) == 0 or len(comp_cards) == 0:
+      break
+    # Update
+
+  input("GAME OVER\nThank your for playing >>> ")
 
 # Other Game Functions
 def get_card_deck():
@@ -54,6 +68,11 @@ def get_card_deck():
     card_deck.append(new_joker)
   
   return card_deck
+
+def print_game_board(num_player_cards, num_comp_cards, current_card):
+  print("STATE OF PLAY\n-------------")
+  print(f"Computer Cards: {num_comp_cards}\tPlayer Cards: {num_player_cards}\n")
+  print(f"Current Card: {current_card}")
 
 # Function Calls
 main()

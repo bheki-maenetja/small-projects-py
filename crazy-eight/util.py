@@ -1,5 +1,6 @@
 from random import shuffle
 
+# Card Handling
 def assign_cards(card_deck):
   player_cards, comp_cards = [], []
   for deck in (player_cards, comp_cards):
