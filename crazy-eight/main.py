@@ -71,7 +71,7 @@ def get_card_deck():
 
 def print_game_board(num_player_cards, num_comp_cards, current_card):
   print("STATE OF PLAY\n-------------")
-  print(f"Computer Cards: {num_comp_cards}\tPlayer Cards: {num_player_cards}\n")
+  print(f"Player {num_player_cards} - {num_comp_cards} Computer\n")
   print(f"Current Card: {current_card}")
 
 # Function Calls
