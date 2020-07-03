@@ -50,9 +50,14 @@ def main(): # the main game function
     # Process Input (events)
     if len(player_cards) == 0 or len(comp_cards) == 0:
       break
-    # Update
     if is_player_turn:
-      pass
+      is_player_turn = not is_player_turn
+      player_choice = util.get_string(1, 1, "Press p to take a card or c to view your your deck", ['c', 'p'])
+      if player_choice == 'c':
+        view_cards(player_cards)
+      elif player_choice == 'p':
+        print("You want to pick a card")
+    # Update
 
   input("GAME OVER\nThank your for playing >>> ")
 
@@ -70,6 +75,11 @@ def get_card_deck():
     card_deck.append(new_joker)
   
   return card_deck
+
+def view_cards(deck):
+  print("\nYour cards:")
+  for i, card in enumerate(deck):
+    print(f"{i+1}) {card}")
 
 # Function Calls
 main()
