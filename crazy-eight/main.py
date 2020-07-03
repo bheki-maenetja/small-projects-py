@@ -9,7 +9,7 @@ def main(): # the main game function
   shuffled_deck = main_deck[:]
   shuffle(shuffled_deck)
   player_cards, comp_cards, stack, pile = cards.assign_cards(shuffled_deck)
-  # util.test_cards(main_deck, player_cards, comp_cards, stack, pile)
+  # cards.test_cards(main_deck, player_cards, comp_cards, stack, pile)
 
   current_card = pile[-1]
   current_suite = pile[-1].suite
@@ -21,13 +21,21 @@ def main(): # the main game function
     # Process Input (events)
     if len(player_cards) == 0 or len(comp_cards) == 0:
       break
-    if is_player_turn:
-      is_player_turn = not is_player_turn
-      player_choice = util.get_string(1, 1, "Press p to take a card or c to view your your deck", ['c', 'p'])
+    while is_player_turn:
+      player_choice = util.get_string(1, 1, "Press t to take a card, c to view your your deck or p to play a card", ['c', 'p', 't'])
       if player_choice == 'c':
         cards.view_cards(player_cards)
+        player_choice = util.get_string(1,1, '\nPress b to go back', ['b'])
       elif player_choice == 'p':
-        print("You want to pick a card")
+        print("You want to play a card")
+        is_player_turn = not is_player_turn
+      elif player_choice == 't':
+        print("You want to take a card")
+        is_player_turn = not is_player_turn
+    else:
+      print("Its the computer's turn now!")
+      break
+
     # Update
 
   input("GAME OVER\nThank your for playing >>> ")
