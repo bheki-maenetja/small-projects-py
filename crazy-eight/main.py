@@ -44,13 +44,15 @@ def main(): # the main game function
   current_suite = pile[-1].suite
   is_player_turn = True
 
-  print_game_board(len(player_cards), len(comp_cards), current_card)
+  util.print_game_board(len(player_cards), len(comp_cards), current_card)
 
   while True:
     # Process Input (events)
     if len(player_cards) == 0 or len(comp_cards) == 0:
       break
     # Update
+    if is_player_turn:
+      pass
 
   input("GAME OVER\nThank your for playing >>> ")
 
@@ -68,11 +70,6 @@ def get_card_deck():
     card_deck.append(new_joker)
   
   return card_deck
-
-def print_game_board(num_player_cards, num_comp_cards, current_card):
-  print("STATE OF PLAY\n-------------")
-  print(f"Player {num_player_cards} - {num_comp_cards} Computer\n")
-  print(f"Current Card: {current_card}")
 
 # Function Calls
 main()
