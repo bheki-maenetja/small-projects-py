@@ -5,7 +5,7 @@ def get_integer(min_value, max_value, input_prompt):
       number = int(input(f"{input_prompt}: "))
       if number not in range(min_value, max_value + 1): raise ValueError
     except ValueError:
-      print(f"Please enter a number between {min_value} and {max_value}!")
+      print(f"Please enter a number between {min_value} and {max_value}!!!")
     else:
       break
   

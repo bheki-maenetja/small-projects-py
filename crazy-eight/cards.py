@@ -1,4 +1,5 @@
 from random import shuffle, choice
+from util import get_integer
 
 # The Card Class
 class Card():
@@ -29,7 +30,9 @@ class Card():
   def __str__(self):
     return f"{self.name.title()}"
 
-# Card Handling
+# CARD FUNCTIONS
+
+# Creating the Deck and Assigning Cards
 def get_card_deck():
   card_deck = []
 
@@ -63,6 +66,7 @@ def assign_cards(card_deck):
   stack = card_deck
   return player_cards, comp_cards, stack, pile
 
+# Testing
 def test_cards(main_deck, player_cards, comp_cards, stack, pile): # checks to see if there are any cards in more than one place
   for card in main_deck:
     list_count = 0
@@ -71,7 +75,22 @@ def test_cards(main_deck, player_cards, comp_cards, stack, pile): # checks to se
         list_count += 1
     print(card, list_count)
 
-def view_cards(deck):
-  print("\nYour cards:")
+# Display
+def view_cards(deck, heading):
+  print(f"\n{heading}:")
   for i, card in enumerate(deck):
     print(f"{i+1}) {card}")
+  print()
+
+# Choosing and Playing
+def play_card(deck, current_card):
+  if current_card.value == 0:
+    viable_cards = deck.copy()
+  else:
+    viable_cards = [card for card in deck if card.value == current_card.value or card.suite == current_card.suite or card.value == 0]
+  if len(viable_cards) > 0:
+    view_cards(viable_cards, 'Here are the cards that you can play')
+    card_choice_index = get_integer(1, len(viable_cards), "Choose a card by entering it's corresponding number") - 1
+    print(f"You want to play: {viable_cards[card_choice_index]}")
+  else:
+    input("Yikes! Looks like there aren't any cards that you can play >>> ")
