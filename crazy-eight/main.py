@@ -25,7 +25,7 @@ def main(): # the main game function
       player_choice = util.get_string(1, 1, "Press t to take a card, c to view your your deck or p to play a card", ['c', 'p', 't'])
       if player_choice == 'c':
         cards.view_cards(player_cards)
-        player_choice = util.get_string(1,1, '\nPress b to go back', ['b'])
+        player_choice = util.get_string(1,1, '\nPress b to go back', accept_values=['b'])
       elif player_choice == 'p':
         print("You want to play a card")
         is_player_turn = not is_player_turn

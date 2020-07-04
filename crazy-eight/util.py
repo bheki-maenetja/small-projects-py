@@ -15,11 +15,11 @@ def get_string(min_length, max_length, input_prompt, accept_values=None):
   while True:
     try:
       string = input(f"{input_prompt}: ").lower()
-      if not accept_values:
+      if accept_values != None:
         if string not in accept_values: raise ValueError
       if len(string) > max_length or len(string) < min_length: raise ValueError
     except ValueError:
-      print(f"{input_prompt}: ")
+      pass
     else:
       break
   
