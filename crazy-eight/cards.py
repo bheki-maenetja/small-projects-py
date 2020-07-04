@@ -91,6 +91,9 @@ def play_card(deck, current_card):
   if len(viable_cards) > 0:
     view_cards(viable_cards, 'Here are the cards that you can play')
     card_choice_index = get_integer(1, len(viable_cards), "Choose a card by entering it's corresponding number") - 1
-    print(f"You want to play: {viable_cards[card_choice_index]}")
+    card_choice = viable_cards[card_choice_index]
+    deck.remove(card_choice)
+    return card_choice
   else:
     input("Yikes! Looks like there aren't any cards that you can play >>> ")
+    return None
