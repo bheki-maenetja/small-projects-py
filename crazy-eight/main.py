@@ -3,6 +3,10 @@ from random import shuffle, choice
 import cards
 import util
 
+# Temporary Helper Functions
+def print_status(pile, stack, comp_cards):
+  input(f"There are now {len(pile)} cards in the pile, {len(stack)} cards in the stack and the computer has {len(comp_cards)} cards >>> ")
+
 # THE MAIN FUNCTION
 def main(): # the main game function
   main_deck = cards.get_card_deck()
@@ -68,8 +72,5 @@ def main(): # the main game function
 
 main()
 
-# Temporary Helper Functions
-def print_status(pile, stack, comp_cards):
-  input(f"There are now {len(pile)} cards in the pile, {len(stack)} cards in the stack and the computer has {len(comp_cards)} cards >>> ")
   
     
