@@ -88,6 +88,7 @@ def play_card(deck, current_card):
     viable_cards = deck.copy()
   else:
     viable_cards = [card for card in deck if card.value == current_card.value or card.suite == current_card.suite or card.value == 0]
+    
   if len(viable_cards) > 0:
     view_cards(viable_cards, 'Here are the cards that you can play')
     card_choice_index = get_integer(0, len(viable_cards), "Choose a card by entering it's corresponding number or press 0 to go back") - 1
@@ -98,4 +99,17 @@ def play_card(deck, current_card):
     return card_choice
   else:
     input("Yikes! Looks like there aren't any cards that you can play >>> ")
+    return None
+
+def comp_play_card(deck, current_card):
+  if current_card.value == 0:
+    viable_cards = deck.copy()
+  else:
+    viable_cards = [card for card in deck if card.value == current_card.value or card.suite == current_card.suite or card.value == 0]
+  
+  if len(viable_cards) > 0:
+    card_choice = choice(viable_cards)
+    deck.remove(card_choice)
+    return card_choice
+  else:
     return None
