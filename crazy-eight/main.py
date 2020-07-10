@@ -34,6 +34,8 @@ def main(): # the main game function
           current_card = pile[-1]
           current_suite = current_card.suite
           is_player_turn = False
+        else:
+          player_choice = ''
       elif player_choice == 't':
         new_player_card = stack.pop()
         player_cards.append(new_player_card)

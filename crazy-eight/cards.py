@@ -90,7 +90,9 @@ def play_card(deck, current_card):
     viable_cards = [card for card in deck if card.value == current_card.value or card.suite == current_card.suite or card.value == 0]
   if len(viable_cards) > 0:
     view_cards(viable_cards, 'Here are the cards that you can play')
-    card_choice_index = get_integer(1, len(viable_cards), "Choose a card by entering it's corresponding number") - 1
+    card_choice_index = get_integer(0, len(viable_cards), "Choose a card by entering it's corresponding number or press 0 to go back") - 1
+    if card_choice_index == -1:
+      return None
     card_choice = viable_cards[card_choice_index]
     deck.remove(card_choice)
     return card_choice
