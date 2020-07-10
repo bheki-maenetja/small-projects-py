@@ -18,7 +18,6 @@ def main(): # the main game function
 
   util.print_game_board(len(player_cards), len(comp_cards), current_card)
 
-  print(len(pile))
   while True:
     # Process Input (events)
     if len(player_cards) == 0 or len(comp_cards) == 0:
@@ -31,15 +30,19 @@ def main(): # the main game function
         player_card = cards.play_card(player_cards, current_card)
         if player_card != None:
           pile.append(player_card)
+          input(f"You have played the {player_card} >>> ")
           current_card = pile[-1]
+          current_suite = current_card.suite
           is_player_turn = False
       elif player_choice == 't':
-        print("You want to take a card")
+        new_player_card = stack.pop()
+        player_cards.append(new_player_card)
+        input(f"You have taken the {new_player_card} >>> ")
         is_player_turn = False
       else:
         player_choice = util.get_string(1, 1, "Press t to take a card, c to view your your deck or p to play a card", ['c', 'p', 't'])
     else:
-      input(f"There are now {len(pile)} in the pile >>> ")
+      input(f"There are now {len(pile)} cards in the pile, {len(stack)} cards in the stack and the computer has {len(comp_cards)} cards >>> ")
       input("Its the computer's turn now! >>> ")
       is_player_turn = True
       player_choice = ''
