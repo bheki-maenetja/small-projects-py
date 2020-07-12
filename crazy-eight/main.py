@@ -3,24 +3,19 @@ from random import shuffle, choice
 import cards
 import util
 
-# Temporary Helper Functions
-def print_status(pile, stack, comp_cards):
-  input(f"There are now {len(pile)} cards in the pile, {len(stack)} cards in the stack and the computer has {len(comp_cards)} cards >>> ")
-
 # THE MAIN FUNCTION
-def main(): # the main game function
+def main():
   main_deck = cards.get_card_deck()
   shuffled_deck = main_deck[:]
   shuffle(shuffled_deck)
   player_cards, comp_cards, stack, pile = cards.assign_cards(shuffled_deck)
-  # cards.test_cards(main_deck, player_cards, comp_cards, stack, pile)
 
   current_card = pile[-1]
   current_suite = pile[-1].suite
   is_player_turn = True
   player_choice = ''
 
-  util.print_game_board(len(player_cards), len(comp_cards), current_card)
+  cards.print_game_board(len(player_cards), len(comp_cards), current_card)
 
   while True:
     # Process Input (events)
@@ -33,22 +28,22 @@ def main(): # the main game function
       elif player_choice == 'p':
         player_card = cards.play_card(player_cards, current_card, current_suite)
         if player_card != None:
-          pile.append(player_card)
           input(f"You have played the {player_card} >>> ")
+          pile.append(player_card)
           current_card = pile[-1]
           current_suite = current_card.suite
-          is_player_turn = False
-        else:
-          player_choice = ''
+          is_player_turn = True if current_card.value == 7 or current_card.value == 11 else False 
+        player_choice = ''
       elif player_choice == 't':
         new_player_card = stack.pop()
         player_cards.append(new_player_card)
         input(f"You have taken the {new_player_card} >>> ")
         is_player_turn = False
+        player_choice = ''
       else:
         player_choice = util.get_string(1, 1, "Press t to take a card, c to view your your deck or p to play a card", ['c', 'p', 't'])
     else:
-      print_status(pile, stack, comp_cards)
+      cards.print_status(pile, stack, comp_cards)
       input("Its the computer's turn now! >>> ")
       comp_card = cards.comp_play_card(comp_cards, current_card, current_suite)
 
@@ -57,16 +52,16 @@ def main(): # the main game function
         input(f"The computer has played the {comp_card} >>> ")
         current_card = pile[-1]
         current_suite = current_card.suite
+        is_player_turn = False if current_card.value == 7 or current_card.value == 11 else True
       else:
         new_comp_card = stack.pop()
         comp_cards.append(new_comp_card)
         input(f"The computer has taken the {new_comp_card} >>> ")
+        is_player_turn = True
 
-      is_player_turn = True
-      player_choice = ''
-      print_status(pile, stack, comp_cards)
+      cards.print_status(pile, stack, comp_cards)
     # Update
-    util.print_game_board(len(player_cards), len(comp_cards), current_card)
+    cards.print_game_board(len(player_cards), len(comp_cards), current_card)
 
   input("GAME OVER\nThank your for playing >>> ")
 

@@ -30,7 +30,7 @@ class Card():
   def __str__(self):
     return f"{self.name.title()}"
 
-# CARD FUNCTIONS
+# CARD FUNCTION
 
 # Creating the Deck and Assigning Cards
 def get_card_deck():
@@ -66,7 +66,7 @@ def assign_cards(card_deck):
   stack = card_deck
   return player_cards, comp_cards, stack, pile
 
-# Testing
+# Debugging
 def test_cards(main_deck, player_cards, comp_cards, stack, pile): # checks to see if there are any cards in more than one place
   for card in main_deck:
     list_count = 0
@@ -75,12 +75,20 @@ def test_cards(main_deck, player_cards, comp_cards, stack, pile): # checks to se
         list_count += 1
     print(card, list_count)
 
+def print_status(pile, stack, comp_cards):
+  input(f"There are now {len(pile)} cards in the pile, {len(stack)} cards in the stack and the computer has {len(comp_cards)} cards >>> ")
+
 # Display
 def view_cards(deck, heading):
   print(f"\n{heading}:")
   for i, card in enumerate(deck):
     print(f"{i+1}) {card}")
   print()
+
+def print_game_board(num_player_cards, num_comp_cards, current_card):
+  print("STATE OF PLAY\n-------------")
+  print(f"Player {num_player_cards} - {num_comp_cards} Computer\n")
+  print(f"Current Card: {current_card}")
 
 # Choosing and Playing
 def play_card(deck, current_card, current_suite):

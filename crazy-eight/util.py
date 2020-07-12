@@ -24,9 +24,3 @@ def get_string(min_length, max_length, input_prompt, accept_values=None):
       break
   
   return string
-
-# Display Functions
-def print_game_board(num_player_cards, num_comp_cards, current_card):
-  print("STATE OF PLAY\n-------------")
-  print(f"Player {num_player_cards} - {num_comp_cards} Computer\n")
-  print(f"Current Card: {current_card}")
