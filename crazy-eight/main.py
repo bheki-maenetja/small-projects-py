@@ -32,7 +32,9 @@ def main():
           pile.append(player_card)
           current_card = pile[-1]
           current_suite = current_card.suite
-          is_player_turn = True if current_card.value == 7 or current_card.value == 11 else False 
+          is_player_turn = True if current_card.value == 7 or current_card.value == 11 else False
+          if current_card.value == 8:
+            current_suite = cards.change_suite()
         player_choice = ''
       elif player_choice == 't':
         new_player_card = stack.pop()
@@ -53,6 +55,8 @@ def main():
         current_card = pile[-1]
         current_suite = current_card.suite
         is_player_turn = False if current_card.value == 7 or current_card.value == 11 else True
+        if current_card.value == 8:
+          current_suite = cards.comp_change_suite()
       else:
         new_comp_card = stack.pop()
         comp_cards.append(new_comp_card)

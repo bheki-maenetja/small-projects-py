@@ -121,3 +121,24 @@ def comp_play_card(deck, current_card, current_suite):
     return card_choice
   else:
     return None
+
+# Power Cards
+def change_suite():
+  input("\nYou can now change the current suite >>> ")
+  choices = ['hearts', 'diamonds', 'flowers', 'spades']
+
+  for i, choice in enumerate(choices):
+    print(f"{i+1}) {choice.title()}")
+  print()
+  
+  suite_choice_index = get_integer(1, len(choices), "To choose a suite enter it's corresponding number") - 1
+  suite_choice = choices[suite_choice_index]
+  input(f"You have chosen {suite_choice.title()} >>> ")
+  return suite_choice
+
+def comp_change_suite():
+  input("\nThe computer will change the current suite >>> ")
+  choices = ['hearts', 'diamonds', 'flowers', 'spades']
+  suite_choice = choice(choices)
+  input(f"The computer has chosen {suite_choice} >>> ")
+  return suite_choice
