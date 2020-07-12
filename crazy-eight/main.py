@@ -31,7 +31,7 @@ def main(): # the main game function
         cards.view_cards(player_cards, 'Your cards')
         player_choice = util.get_string(1,1, 'Press b to go back or p to play a card', accept_values=['b', 'p'])
       elif player_choice == 'p':
-        player_card = cards.play_card(player_cards, current_card)
+        player_card = cards.play_card(player_cards, current_card, current_suite)
         if player_card != None:
           pile.append(player_card)
           input(f"You have played the {player_card} >>> ")
@@ -50,7 +50,7 @@ def main(): # the main game function
     else:
       print_status(pile, stack, comp_cards)
       input("Its the computer's turn now! >>> ")
-      comp_card = cards.comp_play_card(comp_cards, current_card)
+      comp_card = cards.comp_play_card(comp_cards, current_card, current_suite)
 
       if comp_card != None:
         pile.append(comp_card)

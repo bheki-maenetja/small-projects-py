@@ -83,11 +83,11 @@ def view_cards(deck, heading):
   print()
 
 # Choosing and Playing
-def play_card(deck, current_card):
+def play_card(deck, current_card, current_suite):
   if current_card.value == 0:
     viable_cards = deck.copy()
   else:
-    viable_cards = [card for card in deck if card.value == current_card.value or card.suite == current_card.suite or card.value == 0]
+    viable_cards = [card for card in deck if card.value == current_card.value or card.suite == current_suite or card.value == 0]
     
   if len(viable_cards) > 0:
     view_cards(viable_cards, 'Here are the cards that you can play')
@@ -101,11 +101,11 @@ def play_card(deck, current_card):
     input("Yikes! Looks like there aren't any cards that you can play >>> ")
     return None
 
-def comp_play_card(deck, current_card):
+def comp_play_card(deck, current_card, current_suite):
   if current_card.value == 0:
     viable_cards = deck.copy()
   else:
-    viable_cards = [card for card in deck if card.value == current_card.value or card.suite == current_card.suite or card.value == 0]
+    viable_cards = [card for card in deck if card.value == current_card.value or card.suite == current_suite or card.value == 0]
   
   if len(viable_cards) > 0:
     card_choice = choice(viable_cards)
