@@ -111,14 +111,14 @@ def play_card(deck, current_card, current_suite, is_attacked=False):
     return card_choice
   elif len(viable_cards) == 0 and is_attacked:
     input("Eish! Looks like you're going to have to take those cards >>> ")
-    return True
+    return 1
   else:
     input("Yikes! Looks like there aren't any cards that you can play >>> ")
     return None
 
-def comp_play_card(deck, current_card, current_suite):
-  if current_card.value == 0:
-    viable_cards = deck.copy()
+def comp_play_card(deck, current_card, current_suite, is_attacked=False):
+  if current_card.value in [0, 2] and is_attacked:
+    viable_cards = [card for card in deck if card.value == 0 or card.value == 2]
   else:
     viable_cards = [card for card in deck if card.value == current_card.value or card.suite == current_suite or card.value == 0]
   
@@ -126,6 +126,9 @@ def comp_play_card(deck, current_card, current_suite):
     card_choice = choice(viable_cards)
     deck.remove(card_choice)
     return card_choice
+  elif len(viable_cards) == 0 and is_attacked:
+    input("The computer will take those cards >>> ")
+    return 1
   else:
     return None
 
