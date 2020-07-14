@@ -96,6 +96,8 @@ def print_game_board(num_player_cards, num_comp_cards, current_card):
 
 # Choosing and Playing
 def play_card(deck, current_card, current_suite, is_attacked=False):
+  input_prompt = "Choose a card by entering it's corresponding number or press 0 to go back" if not is_attacked else "Choose a card by entering it's corresponding number or press 0 to take the cards"
+
   if current_card.value in [0, 2] and is_attacked:
     viable_cards = [card for card in deck if card.value == 0 or card.value == 2]
   else:
@@ -103,8 +105,10 @@ def play_card(deck, current_card, current_suite, is_attacked=False):
     
   if len(viable_cards) > 0:
     view_cards(viable_cards, 'Here are the cards that you can play')
-    card_choice_index = get_integer(0, len(viable_cards), "Choose a card by entering it's corresponding number or press 0 to go back") - 1
-    if card_choice_index == -1:
+    card_choice_index = get_integer(0, len(viable_cards), input_prompt) - 1
+    if card_choice_index == -1 and is_attacked:
+      return 1
+    elif card_choice_index == -1:
       return None
     card_choice = viable_cards[card_choice_index]
     deck.remove(card_choice)
@@ -152,3 +156,8 @@ def comp_change_suite():
   suite_choice = choice(choices)
   input(f"The computer has chosen {suite_choice} >>> ")
   return suite_choice
+
+def take_cards(attack_value, deck, stack):
+  for i in range(attack_value):
+    new_card = stack.pop()
+    deck.append(new_card)

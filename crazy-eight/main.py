@@ -40,6 +40,7 @@ def main():
             attack_value += current_card.power_value
         elif player_card == 1:
           input(f"The player will take {attack_value} cards >>> ")
+          cards.take_cards(attack_value, player_cards, stack)
           attack_value = 0
           is_player_turn = False
         player_choice = ''
@@ -68,6 +69,7 @@ def main():
           attack_value += current_card.power_value
       elif comp_card == 1:
         input(f"The computer will take {attack_value} cards >>> ")
+        cards.take_cards(attack_value, comp_cards, stack)
         attack_value = 0
         is_player_turn = True
       else:
