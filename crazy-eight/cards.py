@@ -26,6 +26,10 @@ class Card():
     self.suite = suite
     self.is_power = True if value in [0, 2, 7, 8, 11] else False
     self.name = f"{self.card_names[value]} of {suite}" if value != 0 else f"{self.card_names[value]}"
+    if value == 2:
+      self.power_value = 2
+    elif value == 0:
+      self.power_value = 6
   
   def __str__(self):
     return f"{self.name.title()}"
@@ -91,9 +95,9 @@ def print_game_board(num_player_cards, num_comp_cards, current_card):
   print(f"Current Card: {current_card}")
 
 # Choosing and Playing
-def play_card(deck, current_card, current_suite):
-  if current_card.value == 0:
-    viable_cards = deck.copy()
+def play_card(deck, current_card, current_suite, is_attacked=False):
+  if current_card.value in [0, 2] and is_attacked:
+    viable_cards = [card for card in deck if card.value == 0 or card.value == 2]
   else:
     viable_cards = [card for card in deck if card.value == current_card.value or card.suite == current_suite or card.value == 0]
     
@@ -105,6 +109,9 @@ def play_card(deck, current_card, current_suite):
     card_choice = viable_cards[card_choice_index]
     deck.remove(card_choice)
     return card_choice
+  elif len(viable_cards) == 0 and is_attacked:
+    input("Eish! Looks like you're going to have to take those cards >>> ")
+    return True
   else:
     input("Yikes! Looks like there aren't any cards that you can play >>> ")
     return None

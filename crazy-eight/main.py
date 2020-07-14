@@ -14,6 +14,7 @@ def main():
   current_suite = pile[-1].suite
   is_player_turn = True
   player_choice = ''
+  attack_value = 0
 
   cards.print_game_board(len(player_cards), len(comp_cards), current_card)
 
@@ -35,6 +36,8 @@ def main():
           is_player_turn = True if current_card.value == 7 or current_card.value == 11 else False
           if current_card.value == 8:
             current_suite = cards.change_suite()
+          elif current_card.value == 2 or current_card.value == 0:
+            attack_value += current_card.power_value
         player_choice = ''
       elif player_choice == 't':
         new_player_card = stack.pop()
