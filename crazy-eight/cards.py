@@ -70,6 +70,11 @@ def assign_cards(card_deck):
   stack = card_deck
   return player_cards, comp_cards, stack, pile
 
+def check_stack(stack, pile):
+  if len(stack) < 21:
+    stack += pile[:-1]
+    pile = [pile[-1]]
+
 # Debugging
 def test_cards(main_deck, player_cards, comp_cards, stack, pile): # checks to see if there are any cards in more than one place
   for card in main_deck:
