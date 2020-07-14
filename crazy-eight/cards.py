@@ -100,6 +100,8 @@ def play_card(deck, current_card, current_suite, is_attacked=False):
 
   if current_card.value in [0, 2] and is_attacked:
     viable_cards = [card for card in deck if card.value == 0 or card.value == 2]
+  elif current_card.value == 0 and not is_attacked:
+    viable_cards = deck.copy()
   else:
     viable_cards = [card for card in deck if card.value == current_card.value or card.suite == current_suite or card.value == 0]
     
@@ -123,6 +125,8 @@ def play_card(deck, current_card, current_suite, is_attacked=False):
 def comp_play_card(deck, current_card, current_suite, is_attacked=False):
   if current_card.value in [0, 2] and is_attacked:
     viable_cards = [card for card in deck if card.value == 0 or card.value == 2]
+  elif current_card.value == 0 and not is_attacked:
+    viable_cards = deck.copy()
   else:
     viable_cards = [card for card in deck if card.value == current_card.value or card.suite == current_suite or card.value == 0]
   
