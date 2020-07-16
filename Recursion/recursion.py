@@ -56,6 +56,22 @@ def lastChar(string, i = 0):
 
 print(lastChar(''))
 
+# Checks to see if character is in a string
+def isIn(char, aStr):
+  print(char, aStr)
+  if aStr == '':
+    return False
+  elif len(aStr) == 1 and aStr != char:
+    return False
+  elif char == aStr:
+    return True
+  elif char == aStr[len(aStr) // 2]:
+    return True
+  elif char > aStr[len(aStr) // 2]:
+    return isIn(char, aStr[len(aStr) // 2:])
+  elif char < aStr[len(aStr) // 2]:
+    return isIn(char, aStr[:len(aStr) // 2])
+
 # print(fibbo(4))
 
 # print(maxNum([3,4,2,1,2]))
