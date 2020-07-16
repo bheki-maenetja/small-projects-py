@@ -72,7 +72,9 @@ def assign_cards(card_deck):
 
 def check_stack(stack, pile):
   if len(stack) < 21:
-    stack += pile[:-1]
+    pile_cards = pile[:-1]
+    shuffle(pile_cards)
+    stack += pile_cards
     pile = [pile[-1]]
 
 # Debugging
