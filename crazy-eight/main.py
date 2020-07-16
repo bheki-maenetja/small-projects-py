@@ -15,7 +15,7 @@ def main():
   is_player_turn = True
   player_choice = ''
   attack_value = 0
-
+  
   cards.print_game_board(len(player_cards), len(comp_cards), current_card)
 
   while True:

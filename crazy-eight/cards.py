@@ -75,7 +75,9 @@ def check_stack(stack, pile):
     pile_cards = pile[:-1]
     shuffle(pile_cards)
     stack += pile_cards
-    pile = [pile[-1]]
+    last_card = pile[-1]
+    pile.clear()
+    pile.append(last_card)
 
 # Debugging
 def test_cards(main_deck, player_cards, comp_cards, stack, pile): # checks to see if there are any cards in more than one place
