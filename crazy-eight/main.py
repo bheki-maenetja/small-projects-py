@@ -41,13 +41,14 @@ def main():
         elif player_card == 1:
           input(f"The player will take {attack_value} cards >>> ")
           cards.take_cards(attack_value, player_cards, stack)
+          cards.check_stack(stack, pile)
           attack_value = 0
           is_player_turn = False
         player_choice = ''
       elif player_choice == 't':
-        new_player_card = stack.pop()
-        player_cards.append(new_player_card)
-        input(f"You have taken the {new_player_card} >>> ")
+        cards.take_cards(1, player_cards, stack)
+        cards.check_stack(stack, pile)
+        input(f"You have taken the {player_cards[-1]} >>> ")
         is_player_turn = False
         player_choice = ''
       else:
@@ -70,12 +71,13 @@ def main():
       elif comp_card == 1:
         input(f"The computer will take {attack_value} cards >>> ")
         cards.take_cards(attack_value, comp_cards, stack)
+        cards.check_stack(stack, pile)
         attack_value = 0
         is_player_turn = True
       else:
-        new_comp_card = stack.pop()
-        comp_cards.append(new_comp_card)
-        input(f"The computer has taken the {new_comp_card} >>> ")
+        cards.take_cards(1, comp_cards, stack)
+        cards.check_stack(stack, pile)
+        input(f"The computer has taken the {comp_cards[-1]} >>> ")
         is_player_turn = True
 
       cards.print_status(pile, stack, comp_cards)
