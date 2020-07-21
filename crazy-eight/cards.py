@@ -54,7 +54,7 @@ def get_card_deck():
 def assign_cards(card_deck):
   player_cards, comp_cards = [], []
   for deck in (player_cards, comp_cards):
-    for i in range(1):
+    for i in range(8):
       new_card = card_deck.pop()
       deck.append(new_card)
   

@@ -53,7 +53,6 @@ def main():
         player_choice = util.get_string(1, 1, "Press t to take a card, c to view your your deck or p to play a card", ['c', 'p', 't']) if attack_value == 0 else 'p'
     else:
       if not is_game_over(player_cards, comp_cards, current_card):
-        print_status(pile, stack, comp_cards)
         input("Its the computer's turn now! >>> ")
         comp_card = comp_play_card(comp_cards, current_card, current_suite, attack_value > 0)
 
@@ -78,12 +77,15 @@ def main():
           check_stack(stack, pile)
           input(f"The computer has taken the {comp_cards[-1]} >>> ")
           is_player_turn = True
-
-      print_status(pile, stack, comp_cards)
     # Update
     print_game_board(len(player_cards), len(comp_cards), current_card)
 
-  input("GAME OVER\nThank your for playing >>> ")
+  input("GAME OVER >>> ")
+  if len(player_cards) == 0:
+    input("Congratulations! You won!!! >>> ")
+  elif len(comp_cards) == 0:
+    input("You lost. Better luck next time. >>> ")
+  input("Thank you for playing >>> ") 
 
 main()
 
