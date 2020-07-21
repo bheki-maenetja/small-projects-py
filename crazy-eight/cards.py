@@ -34,7 +34,7 @@ class Card():
   def __str__(self):
     return f"{self.name.title()}"
 
-# CARD FUNCTION
+# CARD FUNCTIONS
 
 # Creating the Deck and Assigning Cards
 def get_card_deck():
@@ -54,7 +54,7 @@ def get_card_deck():
 def assign_cards(card_deck):
   player_cards, comp_cards = [], []
   for deck in (player_cards, comp_cards):
-    for i in range(8):
+    for i in range(3):
       new_card = card_deck.pop()
       deck.append(new_card)
   
@@ -151,7 +151,7 @@ def comp_play_card(deck, current_card, current_suite, is_attacked=False):
 
 # Power Cards
 def change_suite():
-  input("\nYou can now change the current suite >>> ")
+  input("You can now change the current suite >>> ")
   choices = ['hearts', 'diamonds', 'flowers', 'spades']
 
   for i, choice in enumerate(choices):
@@ -165,8 +165,11 @@ def change_suite():
 
 def comp_change_suite(deck):
   avail_suites = { card.suite for card in deck if card.suite != '' }
-  chosen_suite = avail_suites.pop()
-  input("\nThe computer will change the current suite >>> ")
+  if len(avail_suites) == 0:
+    chosen_suite = choice(['hearts', 'diamonds', 'flowers', 'spades'])
+  else:
+    chosen_suite = avail_suites.pop()
+  input("The computer will change the current suite >>> ")
   input(f"The computer has chosen {chosen_suite} >>> ")
   return chosen_suite
 
@@ -174,3 +177,10 @@ def take_cards(attack_value, deck, stack):
   for i in range(attack_value):
     new_card = stack.pop()
     deck.append(new_card)
+
+# Game Conditionals
+def is_game_over(player_cards, comp_cards, current_card):
+  if (len(player_cards) * len(comp_cards) == 0) and not current_card.is_power:
+    return True
+  else:
+    return False

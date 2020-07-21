@@ -18,10 +18,8 @@ def main():
   
   cards.print_game_board(len(player_cards), len(comp_cards), current_card)
 
-  while True:
+  while not cards.is_game_over(player_cards, comp_cards, current_card):
     # Process Input (events)
-    if len(player_cards) == 0 or len(comp_cards) == 0:
-      break
     while is_player_turn:
       if player_choice == 'c':
         cards.view_cards(player_cards, 'Your cards')
