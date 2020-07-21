@@ -65,7 +65,7 @@ def main():
         current_suite = current_card.suite
         is_player_turn = False if current_card.value == 7 or current_card.value == 11 else True
         if current_card.value == 8:
-          current_suite = cards.comp_change_suite()
+          current_suite = cards.comp_change_suite(comp_cards)
         elif current_card.value in [0, 2]:
           attack_value += current_card.power_value
       elif comp_card == 1:

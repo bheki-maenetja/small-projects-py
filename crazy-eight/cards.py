@@ -165,13 +165,10 @@ def change_suite():
 
 def comp_change_suite(deck):
   avail_suites = { card.suite for card in deck if card.suite != '' }
-  input("Available cards >>> ")
   chosen_suite = avail_suites.pop()
   input("\nThe computer will change the current suite >>> ")
-  choices = ['hearts', 'diamonds', 'flowers', 'spades']
-  suite_choice = choice(choices)
-  input(f"The computer has chosen {suite_choice} >>> ")
-  return suite_choice
+  input(f"The computer has chosen {chosen_suite} >>> ")
+  return chosen_suite
 
 def take_cards(attack_value, deck, stack):
   for i in range(attack_value):
