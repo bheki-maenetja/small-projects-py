@@ -163,7 +163,10 @@ def change_suite():
   input(f"You have chosen {suite_choice.title()} >>> ")
   return suite_choice
 
-def comp_change_suite():
+def comp_change_suite(deck):
+  avail_suites = { card.suite for card in deck if card.suite != '' }
+  input("Available cards >>> ")
+  chosen_suite = avail_suites.pop()
   input("\nThe computer will change the current suite >>> ")
   choices = ['hearts', 'diamonds', 'flowers', 'spades']
   suite_choice = choice(choices)
