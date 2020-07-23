@@ -8,6 +8,7 @@
 # (so be sure to read the docstrings!)
 
 import random
+import string
 
 WORDLIST_FILENAME = "words.txt"
 
@@ -51,8 +52,10 @@ def isWordGuessed(secretWord, lettersGuessed):
       False otherwise
     '''
     # FILL IN YOUR CODE HERE...
-
-
+    for i in secretWord:
+        if i not in lettersGuessed:
+            return False
+    return True
 
 def getGuessedWord(secretWord, lettersGuessed):
     '''
@@ -62,8 +65,7 @@ def getGuessedWord(secretWord, lettersGuessed):
       what letters in secretWord have been guessed so far.
     '''
     # FILL IN YOUR CODE HERE...
-
-
+    return ''.join([i if i in lettersGuessed else '_' for i in secretWord])
 
 def getAvailableLetters(lettersGuessed):
     '''
@@ -72,7 +74,7 @@ def getAvailableLetters(lettersGuessed):
       yet been guessed.
     '''
     # FILL IN YOUR CODE HERE...
-    
+    return ''.join([i for i in string.ascii_lowercase if i not in lettersGuessed])
 
 def hangman(secretWord):
     '''
