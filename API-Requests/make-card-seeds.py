@@ -70,10 +70,10 @@ my_list = sorted(my_list, key=lambda x: x['price'], reverse=True)
 loop_counts = {1: 25, 2: 20, 3: 15, 4: 10, 5: 5}
 
 # *** THINK VERY LONG AND HARD BEFORE YOU RUN THIS ***
-for model in my_list:
-  loop_count = loop_counts[model['level']]
-  for i in range(loop_count):
-    post_res = requests.post(url = 'http://localhost:8000/api/cards/', data=model)
+# for model in my_list:
+#   loop_count = loop_counts[model['level']]
+#   for i in range(loop_count):
+#     post_res = requests.post(url = 'http://localhost:8000/api/cards/', data=model)
 
 # with open('card-seeds.json', 'w') as outfile:
 #   json.dump(my_list, outfile, indent=2)
