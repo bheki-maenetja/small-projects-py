@@ -50,7 +50,7 @@ def match_day(team_list, matches):
             t2['pts'], t2['w'], t1['l'] = t2['pts'] + 3, t2['w'] + 1, t1['l'] + 1
         else:
             t1['pts'], t2['pts'], t1['d'], t2['d'] = t1['pts'] + 1, t2['pts'] + 1, t1['d'] + 1, t2['d'] + 1
-        input(f"Mathday {i+1} result: {t1['team']} {s1} - {s2} {t2['team']} >>> ")
+        input(f"Matchday {i+1} result: {t1['team']} {s1} - {s2} {t2['team']} >>> ")
 
 def print_table(team_list):
     league_table = [{a.upper():b for a,b in i.items() if a != 'name'} for i in team_list]
