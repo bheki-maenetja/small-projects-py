@@ -71,8 +71,11 @@ def getWordScore(word, n):
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     returns: int >= 0
     """
-    # TO DO ... <-- Remove this comment when you code this function
-
+    score = 0
+    for i in set(word):
+      score += word.count(i) * SCRABBLE_LETTER_VALUES[i]
+    score *= len(word)
+    return score + 50 if len(word) == n else score
 
 
 #
@@ -84,15 +87,14 @@ def displayHand(hand):
 
     For example:
     >>> displayHand({'a':1, 'x':2, 'l':3, 'e':1})
-    Should print out something like:
-       a x x l l l e
+    Should print out something like: a x x l l l e
     The order of the letters is unimportant.
 
     hand: dictionary (string -> int)
     """
     for letter in hand.keys():
         for j in range(hand[letter]):
-             print(letter,end=" ")       # print all on the same line
+            print(letter,end=" ")       # print all on the same line
     print()                             # print an empty line
 
 #
@@ -142,7 +144,10 @@ def updateHand(hand, word):
     hand: dictionary (string -> int)    
     returns: dictionary (string -> int)
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    hand_copy = hand.copy()
+    for i in set(word):
+      hand_copy[i] -= word.count(i)
+    return hand_copy
 
 
 
