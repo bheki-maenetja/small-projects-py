@@ -37,15 +37,21 @@ Some small python programs built with the standard library and a few third-party
  * Several implementations of a program that builds a league table from football results
 ### [Lottery Game](https://github.com/bheki-maenetja/small-projects-py/tree/master/lottery-game)
  * Several implementations of a basic lottery game
-### []()
- *
-### []()
- *
-### []()
- *
-### []()
- *
-### []()
- *
-### []()
- *
+### [Number Guesser](https://github.com/bheki-maenetja/small-projects-py/tree/master/number-guesser)
+ * An interactive number guessing program using binary search
+### [Prime Numbers](https://github.com/bheki-maenetja/small-projects-py/tree/master/prime-number-generator)
+ * A generator function for generating prime numbers
+### [Restaurant Orders](https://github.com/bheki-maenetja/small-projects-py/tree/master/restaurant-orders)
+ * A program for building restaurant menus and placing orders
+### [Rock, Paper, Scissors](https://github.com/bheki-maenetja/small-projects-py/tree/master/rock-paper-scissors)
+ * A CLI implementation of the popular hand game rock, paper, scissors, lizard, spock
+### [Shape Maker](https://github.com/bheki-maenetja/small-projects-py/tree/master/shape-maker)
+ * A basic program for drawing shapes using the turtle library
+### [Sorting Algorithms](https://github.com/bheki-maenetja/small-projects-py/tree/master/sorting-algorithms)
+ * Implementations of several basic sorting algorithms
+### [Vowel Remover](https://github.com/bheki-maenetja/small-projects-py/tree/master/vowel-remover)
+ * A basic program for removing vowels from a string
+### [Word Game](https://github.com/bheki-maenetja/small-projects-py/tree/master/word_game)
+ * A basic Scrabble-like word game. Part of the [MITx Intro to Computer Science (6.00.1x)](https://www.edx.org/course/introduction-to-computer-science-and-programming-7) problem sets
+### [Writing Level](https://github.com/bheki-maenetja/small-projects-py/tree/master/writing-level)
+ * A program to determine the reading level of any given text according to the Coleman-Liau index

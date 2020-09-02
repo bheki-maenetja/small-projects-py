@@ -1,4 +1,4 @@
-from turtle import *
+from turtle import forward, left
 
 def make_shape():
 	list_shapes = ["Triangle", "Square", "Pentagon", "Hexagon", "Heptagon","Octagon", "Nonagon", "Decagon"]

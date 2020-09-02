@@ -4,7 +4,7 @@ def main():
   input("WELCOME TO ROCK, PAPER, LIZARD, SCISSORS, SPOCK >>> ")
   final_user_score, final_comp_score = play_game()
   input(f"GAME OVER >>> ")
-  input(f"Final Scores: Player {final_user_score} - {final_comp_score} Computer >>> ")
+  input(f"Final Score: Player {final_user_score} - {final_comp_score} Computer >>> ")
   input(f"Thank you for playing!!! >>> ")
 
 def play_game():
