@@ -50,7 +50,7 @@ def main():
         is_player_turn = False
         player_choice = ''
       else:
-        player_choice = util.get_string(1, 1, "Press t to take a card, c to view your your deck or p to play a card", ['c', 'p', 't']) if attack_value == 0 else 'p'
+        player_choice = util.get_string(1, 1, "Press 't' to take a card, 'c' to view your your deck or 'p' to play a card", ['c', 'p', 't']) if attack_value == 0 else 'p'
     else:
       if not is_game_over(player_cards, comp_cards, current_card):
         input("Its the computer's turn now! >>> ")
@@ -75,7 +75,8 @@ def main():
         else:
           take_cards(1, comp_cards, stack)
           check_stack(stack, pile)
-          input(f"The computer has taken the {comp_cards[-1]} >>> ")
+          # input(f"The computer has taken the {comp_cards[-1]} >>> ")
+          input(f"The computer has taken a card >>> ")
           is_player_turn = True
     # Update
     print_game_board(len(player_cards), len(comp_cards), current_card)
