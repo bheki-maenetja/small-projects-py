@@ -77,3 +77,18 @@ def isIn(char, aStr):
   elif char < aStr[len(aStr) // 2]:
     return isIn(char, aStr[:len(aStr) // 2])
 
+# Flattening a list --> The list contains other lists, strings, or ints. For example, [[1,'a',['cat'],2],[[[3]],'dog'],4,5] is flattened into [1,'a','cat',2,3,'dog',4,5]
+def flatten(aList):
+
+  def unpackList(List, container):
+    for i in List:
+      if type(i) != list:
+        container.append(i)
+      else:
+        unpackList(i, container)
+    return container
+
+  return unpackList(aList, [])
+
+print(flatten([[1,'a',['cat'],2],[[[3]],'dog'],4,5]))
+
