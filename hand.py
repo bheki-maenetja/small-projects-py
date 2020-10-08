@@ -83,7 +83,16 @@ class Hand(object):
         returns: Boolean (if the word was or was not made)
         """
         # Your code here
-        raise NotImplementedError()
+        hand_copy = self.hand.copy()
+        for i in set(word):
+            if i not in hand_copy.keys() or hand_copy[i] == 0:
+              return False
+            hand_copy[i] -= word.count(i)
+        if any(hand_copy[key] for key in hand_copy if hand_copy[key] < 0):
+          return False
+        else:
+          self.hand = hand_copy
+          return True
 
     
 myHand = Hand(7)
