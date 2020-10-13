@@ -159,5 +159,3 @@ def completeGame(dealMoney, moneyBoxes, chosenBox):
 					validChoice = True
 			print(f"You would've lost ${moneyBoxes.pop(choice)}\n")
 
-playGame()
-
