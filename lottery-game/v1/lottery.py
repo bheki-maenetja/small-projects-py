@@ -91,4 +91,8 @@ def play_lottery(user_nums, powerballs, money):
         x += 1
     print("Congratulations! You won a total of $" + str(total)+ "!")
 
-play_lottery(my_ticket, the_draw, wallet)
+if __name__ == "__main__":
+    play_lottery(my_ticket, the_draw, wallet)
+else:
+    def export_function():
+      play_lottery(my_ticket, the_draw, wallet)

@@ -50,4 +50,8 @@ def play_lotto():
 		count += 1
 	print(f"Congratulations, you've won a grand total of ${winnings}. Well done!")
 
-play_lotto()
+if __name__ == "__main__":
+    play_lotto()
+else:
+    def export_function():
+      play_lotto()

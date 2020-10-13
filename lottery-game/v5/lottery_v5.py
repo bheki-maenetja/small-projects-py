@@ -61,4 +61,8 @@ def get_integer(min_value, max_value, input_prompt):
   
   return number
 
-main()
+if __name__ == "__main__":
+    main()
+else:
+  def export_function():
+    main()

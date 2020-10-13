@@ -57,4 +57,8 @@ def calculate_winnings(user_settings, draw, ticket):
     winnings = prize_money[num_hits] * user_settings[1]
     return winnings, winning_balls, num_hits
 
-play_lotto()
+if __name__ == "__main__":
+    play_lotto()
+else:
+    def export_function():
+      play_lotto()

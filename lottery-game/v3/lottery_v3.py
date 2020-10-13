@@ -78,4 +78,8 @@ def calculate_winnings(ticket_and_draw):
     cash_prize = money_table[num_hits] * draw_range
     return cash_prize, num_hits
 
-play_lotto()
+if __name__ == "__main__":
+    play_lotto()
+else:
+    def export_function():
+      play_lotto()
