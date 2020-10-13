@@ -204,4 +204,3 @@ def display_board(money_boxes, chosen_box=(0, 0)):
     for i in red_money: print(f"£{i}", end=" ")
     input("\n\nHere is the board as it stands. Press enter to continue >>> ")
 
-start_game()
