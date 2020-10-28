@@ -20,5 +20,10 @@ def newRemoveVowel():
             newString = newString + i
     print(newString)
 
+# Version 3
+def print_without_vowels():
+    s = input("Enter a string: ")
+    return "".join(i for i in s if i.lower() not in 'aeiou')
+
 removeVowel()
 newRemoveVowel()
