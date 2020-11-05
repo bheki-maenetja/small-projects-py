@@ -48,17 +48,17 @@ frame_a.pack()
 # my_text_entry.insert(0, "What is your name?")
 
 # Geometry Managers
-frame_1 = tk.Frame(width=500, height=25, bg="green")
-frame_1.pack(fill=tk.X)
+frame_1 = tk.Frame(width=500, height=100, bg="green")
+frame_1.pack(fill=tk.BOTH, expand=0, side=tk.TOP)
 
 frame_2 = tk.Frame(height=50, bg="cyan")
-frame_2.pack(fill=tk.X)
+frame_2.pack(fill=tk.BOTH, expand=1, side=tk.RIGHT)
 
 frame_3 = tk.Frame(height=75, bg="yellow")
-frame_3.pack(fill=tk.X)
+frame_3.pack(fill=tk.BOTH, expand=2, side=tk.RIGHT)
 
 frame_4 = tk.Frame(height=100, bg="orange")
-frame_4.pack(fill=tk.X)
+frame_4.pack(fill=tk.BOTH, expand=3, side=tk.RIGHT)
 
 window.mainloop()
 # window_2.mainloop()
