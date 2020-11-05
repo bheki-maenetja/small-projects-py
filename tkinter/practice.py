@@ -20,19 +20,20 @@ button.pack()
 user_text = tk.Entry(
     fg="yellow",
     bg="blue",
-    width=50
+    width=50,
+    relief=tk.RAISED
 )
 user_text.pack()
 
 text_box = tk.Text()
 text_box.pack()
 """
-
+# """
 # Widgets -- Frames
 frame_a = tk.Frame()
 frame_b = tk.Frame()
 
-label_a = tk.Label(master=frame_a, text="I'm in frame A")
+label_a = tk.Label(master=frame_a, text="I'm in frame A", relief=tk.SUNKEN)
 label_b = tk.Label(master=frame_b, text="I'm in frame B")
 
 label_a.pack()
@@ -40,5 +41,5 @@ label_b.pack()
 
 frame_b.pack()
 frame_a.pack()
-
+# """
 window.mainloop()
