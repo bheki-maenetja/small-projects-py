@@ -4,7 +4,7 @@ my_text = "This is just some text"
 
 # Widgets -- Labels, Buttons, Entries & Texts
 window = tk.Tk()
-window.resizable(width=False, height=False)
+window.resizable(True, True)
 # window_2 = tk.Tk()
 """
 greeting = tk.Label(text=f"Here is some text: {my_text}", fg="white", background="black")
@@ -63,7 +63,7 @@ frame_4 = tk.Frame(height=100, bg="orange")
 frame_4.pack(fill=tk.BOTH, expand=1, side=tk.LEFT)
 
 frame_5 = tk.Frame(width=500, height=100, bg="red")
-# frame_5.place(x=100, y=600)
+frame_5.place(x=100, y=600)
 
 # place()
 
