@@ -4,6 +4,7 @@ my_text = "This is just some text"
 
 # Widgets -- Labels, Buttons, Entries & Texts
 window = tk.Tk()
+window.resizable(width=False, height=False)
 # window_2 = tk.Tk()
 """
 greeting = tk.Label(text=f"Here is some text: {my_text}", fg="white", background="black")
@@ -48,17 +49,24 @@ frame_a.pack()
 # my_text_entry.insert(0, "What is your name?")
 
 # Geometry Managers
+# pack()
 frame_1 = tk.Frame(width=500, height=100, bg="green")
 frame_1.pack(fill=tk.BOTH, expand=0, side=tk.TOP)
 
 frame_2 = tk.Frame(height=50, bg="cyan")
-frame_2.pack(fill=tk.BOTH, expand=1, side=tk.RIGHT)
+frame_2.pack(fill=tk.BOTH, expand=1, side=tk.LEFT)
 
 frame_3 = tk.Frame(height=75, bg="yellow")
-frame_3.pack(fill=tk.BOTH, expand=1, side=tk.RIGHT)
+frame_3.pack(fill=tk.BOTH, expand=1, side=tk.LEFT)
 
 frame_4 = tk.Frame(height=100, bg="orange")
-frame_4.pack(fill=tk.BOTH, expand=1, side=tk.RIGHT)
+frame_4.pack(fill=tk.BOTH, expand=1, side=tk.LEFT)
+
+frame_5 = tk.Frame(width=500, height=100, bg="red")
+# frame_5.place(x=100, y=600)
+
+# place()
+
 
 window.mainloop()
 # window_2.mainloop()
