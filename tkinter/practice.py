@@ -4,8 +4,9 @@ my_text = "This is just some text"
 
 # Widgets -- Labels, Buttons, Entries & Texts
 window = tk.Tk()
-window.resizable(True, True)
-# window_2 = tk.Tk()
+window_2 = tk.Tk()
+window_3 = tk.Tk()
+window_3.resizable(False, False)
 """
 greeting = tk.Label(text=f"Here is some text: {my_text}", fg="white", background="black")
 greeting.pack()
@@ -62,11 +63,39 @@ frame_3.pack(fill=tk.BOTH, expand=1, side=tk.LEFT)
 frame_4 = tk.Frame(height=100, bg="orange")
 frame_4.pack(fill=tk.BOTH, expand=1, side=tk.LEFT)
 
-frame_5 = tk.Frame(width=500, height=100, bg="red")
-frame_5.place(x=100, y=600)
+frame_5 = tk.Frame(width=100, height=100, bg="red")
+frame_5.place(x=10, y=60)
 
 # place()
+frame_6 = tk.Frame(master=window_2, width=200, height=100, bg="magenta")
+frame_6.grid(row=1, column=1)
+frame_7 = tk.Frame(master=window_2, width=100, height=100, bg="blue")
+frame_7.grid(row=1, column=2)
+frame_8 = tk.Frame(master=window_2, width=100, height=100, bg="violet")
+frame_8.grid(row=1, column=3)
+frame_9 = tk.Frame(master=window_2, width=100, height=100, bg="purple")
+frame_9.grid(row=2, column=1)
+frame_10 = tk.Frame(master=window_2, width=100, height=100, bg="pink")
+frame_10.grid(row=2, column=3)
 
+# grid()
+def make_square(x,y,colour="white"):
+    new_frame = tk.Frame(master=window_3, width=100, height=100, bg=colour)
+    new_frame.grid(row=x, column=y)
+    # label = tk.Label(master=new_frame, text=colour, fg="black", bg=colour)
+    # label.place(x=20, y=30)
 
-window.mainloop()
+def make_board():
+    for i in range(8):
+        for j in range(8):
+            if (i + j) % 2 == 0:
+                make_square(i,j, colour="purple")
+            else:
+                make_square(i,j, colour="violet")
+
+make_board()
+# window.mainloop()
 # window_2.mainloop()
+window.destroy()
+window_2.destroy()
+window_3.mainloop()
