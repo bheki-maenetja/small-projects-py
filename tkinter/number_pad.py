@@ -1,27 +1,28 @@
 import tkinter as tk
+import tkinter.font as tkFont
 
 window = tk.Tk()
+window.resizable(False, False)
 
-top_frame = tk.Frame(height=100, bg="navy", borderwidth=5, relief=tk.RAISED)
-heading = tk.Label(master=top_frame, text="Number Pad", fg="cyan", bg="navy")
+top_frame = tk.Frame(height=100, width=100,bg="navy", borderwidth=5, relief=tk.RAISED)
+top_frame.pack(fill=tk.X, expand=1)
+
+heading_font = tkFont.Font(family="Courier", size=50)
+heading = tk.Label(master=top_frame, text="Number Pad", font=heading_font,fg="cyan", bg="navy")
 heading.pack()
-top_frame.pack()
-
-def print_num(num):
-    print(num)
 
 def create_button(digit):
-    new_button = tk.Button(master=body_frame, text=f"{digit}", height=5, width=10, fg="navy", bg="blue", command=lambda : print(digit))
+    new_button = tk.Button(master=body_frame, text=f"{digit}", height=3, width=15, fg="navy", bg="blue", command=lambda : print(digit))
     return new_button
 
-
-body_frame = tk.Frame(height=100, bg="darkgreen", borderwidth=5, relief=tk.GROOVE)
+body_frame = tk.Frame(height=100, width=100,bg="darkgreen", borderwidth=5, relief=tk.GROOVE)
 for i in range(3):
+    body_frame.rowconfigure(i, weight=1, minsize=10)
+    body_frame.columnconfigure(i, weight=1, minsize=10)
     for j in range(3):
-        # num_func 
         new_button = create_button((i + 1) + j * 3)
-        new_button.grid(row=j, column=i, padx=2, pady=2)
+        new_button.grid(row=j, column=i, padx=5, pady=5)
         num_func = None
 
-body_frame.pack(fill=tk.Y)
+body_frame.pack(fill=tk.BOTH, expand=1)
 window.mainloop()
