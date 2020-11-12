@@ -12,4 +12,9 @@ fr_buttons = tk.Frame(master=window)
 btn_open = tk.Button(master=fr_buttons, text="Open")
 btn_save = tk.Button(master=fr_buttons, text="Save As")
 
+btn_open.grid(row=0, column=0, sticky="ew")
+btn_save.grid(row=1, column=0, sticky="ew")
+
+fr_buttons.grid(row=0, column=0, sticky="ns")
+
 window.mainloop()

@@ -3,8 +3,8 @@ import tkinter as tk
 window = tk.Tk()
 
 def make_square(x,y,colour="white"):
-    new_frame = tk.Frame(master=window, relief=tk.RAISED, height=100, width=100, borderwidth=5, bg=colour)
-    new_frame.grid(row=x, column=y, padx=5, pady=5)
+    new_frame = tk.Frame(master=window, relief=tk.RAISED, height=100, width=100, borderwidth=2, bg=colour)
+    new_frame.grid(row=x, column=y, sticky="nesw")
     # label = tk.Label(master=new_frame, text=colour, fg="black", bg=colour)
     # label.place(x=20, y=30)
 
