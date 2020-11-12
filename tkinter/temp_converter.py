@@ -4,30 +4,18 @@ import tkinter.font as tkFont
 window = tk.Tk()
 window.title("Temperature Converter")
 
-ent_temperature = tk.Entry(
-    borderwidth=2,
-    relief=tk.SUNKEN
-)
+entry_frame = tk.Frame(master=window)
+ent_temperature = tk.Entry(master=entry_frame, borderwidth=3, relief=tk.SUNKEN)
+lbl_symbol = tk.Label(master=entry_frame, text="°C")
 
-lbl_result = tk.Label(
-    text="100",
-    fg="black"
-)
+ent_temperature.grid(row=0, column=0, sticky="e")
+lbl_symbol.grid(row=0, column=1, sticky="e")
 
-lbl_symbol = tk.Label(
-    text="°C"
-)
+btn_convert = tk.Button(text="\N{RIGHTWARDS BLACK ARROW}", fg="navy")
+lbl_result = tk.Label(text="100", fg="black")
 
-btn_convert = tk.Button(
-    text="Convert",
-    height=1,
-    width=10,
-    fg="navy"
-)
-
-ent_temperature.pack(fill=tk.X, expand=1, side=tk.LEFT)
-lbl_symbol.pack(fill=tk.X, side=tk.LEFT)
-lbl_result.pack(fill=tk.X, side=tk.RIGHT)
-btn_convert.pack(fill=tk.X, side=tk.RIGHT)
+entry_frame.grid(row=0, column=0, padx=10)
+btn_convert.grid(row=0, column=1, pady=10)
+lbl_result.grid(row=0, column=2, padx=10)
 
 window.mainloop()
