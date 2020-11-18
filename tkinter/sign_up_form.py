@@ -2,6 +2,9 @@ from tkinter import *
 from tkinter import ttk
 
 window = Tk()
+window.minsize(100, 100)
+window.maxsize(900, 900)
+window.aspect(1,1,1,1)
 window.rowconfigure(0, weight=1, minsize=50)
 window.columnconfigure(0, weight=1, minsize=50)
 
