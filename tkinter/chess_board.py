@@ -1,6 +1,9 @@
 import tkinter as tk
+from random import choice
 
 window = tk.Tk()
+dark_colours = ["black", "brown", "purple","navy","red"]
+bright_colours = ["white", "pink", "lime", "cyan", "yellow"]
 
 def make_square(x,y,colour="white", square_size=100):
     new_frame = tk.Frame(master=window, relief=tk.RAISED, height=square_size, width=square_size, borderwidth=2, bg=colour)
@@ -19,7 +22,6 @@ def make_board(colour_1, colour_2, square_size=100):
                 make_square(i,j, colour=colour_2, square_size=square_size)
 
 
-
 make_board("navy", "cyan")
-window.bind("<Return>", lambda e: make_board("black", "white", 50))
+window.bind("<Return>", lambda e: make_board(choice(dark_colours), choice(bright_colours), 50))
 window.mainloop()
