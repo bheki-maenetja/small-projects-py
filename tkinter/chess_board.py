@@ -2,6 +2,8 @@ import tkinter as tk
 from random import choice
 
 window = tk.Tk()
+window.aspect(1,1,1,1)
+window.minsize(300, 300)
 dark_colours = ["black", "brown", "purple","navy","red"]
 bright_colours = ["white", "pink", "lime", "cyan", "yellow"]
 
