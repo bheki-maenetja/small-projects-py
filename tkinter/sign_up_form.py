@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+import re
 
 window = Tk()
 window.minsize(300, 300)
@@ -24,13 +25,16 @@ my_label.grid(row=0, column=0, sticky="s", padx=10, pady=10)
 my_check = ttk.Checkbutton(my_frame, text="Do you want cake?", onvalue=1, offvalue=0)
 my_check.grid(row=1, column=0, sticky="n", padx=10, pady=10)
 
-
-
-string_var = StringVar()
-my_entry = ttk.Entry(my_frame, textvariable=string_var)
-
 def call_back(*args):
     print(my_entry.get())
+
+def validate_entry(val):
+    return re.match('^[0-9]*$', val) is not None and len(val) < 5
+
+validate_command = (my_frame.register(validate_entry), '%P')
+
+string_var = StringVar()
+my_entry = ttk.Entry(my_frame, textvariable=string_var, validate='key', validatecommand=validate_command)
 
 string_var.trace_add("write", call_back)
 my_entry.grid(row=2, column=0, sticky='new', padx=10, pady=10)
