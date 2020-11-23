@@ -3,8 +3,10 @@ from tkinter import ttk
 import re
 
 window = Tk()
-window.minsize(300, 300)
-window.maxsize(700, 700)
+window.geometry('900x600')
+# window.minsize(300, 300)
+# window.maxsize(700, 700)
+# window.resizable(False, False)
 window.aspect(1,1,1,1)
 window.rowconfigure(0, weight=1, minsize=100)
 window.columnconfigure(0, weight=1, minsize=1)
