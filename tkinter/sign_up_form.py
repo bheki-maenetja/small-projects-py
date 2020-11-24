@@ -4,10 +4,10 @@ import re
 
 window = Tk()
 window.geometry('900x600')
-# window.minsize(300, 300)
-# window.maxsize(700, 700)
+window.minsize(600, 400)
+window.maxsize(1350, 900)
 # window.resizable(False, False)
-window.aspect(1,1,1,1)
+window.aspect(9,6,9,6)
 window.rowconfigure(0, weight=1, minsize=100)
 window.columnconfigure(0, weight=1, minsize=1)
 
