@@ -7,7 +7,7 @@ def make_shape():
 		print(str(list_shapes.index(list_shapes[counter]) + 3) + ":" + " " + list_shapes[counter])
 		counter = counter + 1
 	numSides = int(input("Enter the number of the shape you would like to make: "))
-	angleSize = (180 * (numSides - 2))/numSides
+	angleSize = (180 * (numSides - 2)) / numSides
 	counter = 0
 	while counter < numSides:
 		forward(100)
