@@ -12,6 +12,8 @@ requests = "*"
 tabulate = "*"
 natural = "*"
 matplotlib = "==3.3.2"
+ipykernal = "*"
+ipykernel = "*"
 
 [requires]
 python_version = "3.8"
