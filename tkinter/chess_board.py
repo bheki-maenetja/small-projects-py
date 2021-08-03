@@ -8,7 +8,14 @@ dark_colours = ["black", "brown", "purple","navy","red"]
 bright_colours = ["white", "pink", "lime", "cyan", "yellow"]
 
 def make_square(x,y,colour="white", square_size=100):
-    new_frame = tk.Frame(master=window, relief=tk.RAISED, height=square_size, width=square_size, borderwidth=2, bg=colour)
+    new_frame = tk.Frame(
+        master=window, 
+        relief=tk.RAISED, 
+        height=square_size, 
+        width=square_size, 
+        borderwidth=2, 
+        bg=colour
+    )
     new_frame.grid(row=x, column=y, sticky="nesw")
     # label = tk.Label(master=new_frame, text=colour, fg="black", bg=colour)
     # label.place(x=20, y=30)
