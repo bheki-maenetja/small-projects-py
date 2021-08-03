@@ -32,5 +32,8 @@ def make_board(colour_1, colour_2, square_size=100):
 
 
 make_board("navy", "cyan")
-window.bind("<Return>", lambda e: make_board(choice(dark_colours), choice(bright_colours), 50))
+window.bind(
+    "<Return>", 
+    lambda e: make_board(choice(dark_colours), choice(bright_colours), 50)
+)
 window.mainloop()
