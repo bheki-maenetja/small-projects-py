@@ -1,6 +1,5 @@
 # Backtracking Solution for the 16 diagonals problem - still in development
 import tkinter as tk
-from random import choice
 
 window = tk.Tk()
 window.aspect(1,1,1,1)
@@ -8,8 +7,7 @@ window.minsize(300, 300)
 
 class BaseInt():
     def __init__(self, base) -> None:
-        if base > 10:
-            raise ValueError("Cannot use base larger than 10")
+        assert 1 <= base <= 10
         self._base = base
     
     def convert_num(self, num, partition=None):
@@ -21,13 +19,19 @@ class BaseInt():
             div_mod = divmod(div_mod[0], self._base)
             remainders.insert(0, str(div_mod[1]))
         
-        num_string = "".join(remainders)
-        if partition:
-            num_string = f"{0:num_string}"
+        num_str = "".join(remainders)
+        if partition and len(num_str) % partition != 0:
+            str_len = (len(num_str) + partition) - (len(num_str) % partition)
+            num_str = num_str.zfill(str_len)
+            num_str = " ".join(
+                [num_str[i:i+partition] for i in range(0, str_len, partition)]
+            )
+        
+        return num_str
     
-    def counter(self):
-        for i in range(100):
-            print(f"{i} -->  {self.convert_num(i)}")
+    def counter(self, n):
+        for i in range(n):
+            print(f"{i} -->  {self.convert_num(i, 5)}")
 
 class Board():
     def __init__(self, grid_size=5, num_diagonals=16) -> None:
@@ -57,6 +61,6 @@ class Board():
 
 if __name__ == "__main__":
     new_board = Board(3)
-    new_int = BaseInt(2)
-    new_int.counter()
+    new_int = BaseInt(3)
+    new_int.counter(5000)
     new_board.generate_grid_perms()
