@@ -10,28 +10,32 @@ class BaseInt():
         assert 1 <= base <= 10
         self._base = base
     
-    def convert_num(self, num, partition=None):
+    def convert_num(self, num, partition=0):
         remainders = []
-        
         div_mod = divmod(num, self._base)
         remainders.append(str(div_mod[1]))
+
         while div_mod[0] != 0:
             div_mod = divmod(div_mod[0], self._base)
             remainders.insert(0, str(div_mod[1]))
         
         num_str = "".join(remainders)
-        if partition and len(num_str) % partition != 0:
+
+        if len(num_str) % partition != 0:
             str_len = (len(num_str) + partition) - (len(num_str) % partition)
-            num_str = num_str.zfill(str_len)
-            num_str = " ".join(
-                [num_str[i:i+partition] for i in range(0, str_len, partition)]
-            )
+        else:
+            str_len = len(num_str)
+        
+        num_str = num_str.zfill(str_len)
+        num_str = " ".join(
+            [num_str[i:i+partition] for i in range(0, str_len, partition)]
+        )
         
         return num_str
     
-    def counter(self, n):
+    def counter(self, n, partition=0):
         for i in range(n):
-            print(f"{i} -->  {self.convert_num(i, 5)}")
+            yield self.convert_num(i, partition)
 
 class Board():
     def __init__(self, grid_size=5, num_diagonals=16) -> None:
@@ -54,13 +58,13 @@ class Board():
     
     def generate_grid_perms(self):
         n = 3 ** (self._grid_size ** 2)
-        print(n)
+        base3_int = BaseInt(3)
+        for i in base3_int.counter(n, 3):
+            print(i)
     
     def __repr__(self) -> str:
         return self.get_str_grid()
 
 if __name__ == "__main__":
     new_board = Board(3)
-    new_int = BaseInt(3)
-    new_int.counter(5000)
     new_board.generate_grid_perms()
