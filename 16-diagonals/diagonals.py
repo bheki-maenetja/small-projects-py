@@ -6,11 +6,25 @@ window.aspect(1,1,1,1)
 window.minsize(300, 300)
 
 class BaseInt():
+    """
+    Class for representing integers in a given base
+    """
     def __init__(self, base) -> None:
         assert 1 <= base <= 10
         self._base = base
     
     def convert_num(self, num, partition=0, min_str_len=None):
+        """
+        PARAMETERS
+            * num -> positive base 10 integer to be converted to the given base
+            * partition -> the size of each partition in the return string
+            * min_str_len -> the minimum length of the return string
+        RETURN VALUES
+            * num_str -> a bit string that represents num in the given base
+        WHAT DOES THIS FUNCTION DO?
+            * Converts a positive base 10 integer to the same number but in a 
+              different base
+        """
         remainders = []
         div_mod = divmod(num, self._base)
         remainders.append(str(div_mod[1]))
@@ -51,27 +65,40 @@ class Board():
     def get_grid(self):
         return self._grid
     
-    def get_str_grid(self, grid):
-        grid = [[str(i) for i in row] for row in grid]
+    def grid_to_str(self, grid):
+        """
+        PARAMETERS
+            * grid -> a 2D array representing a grid
+        RETURN VALUES
+            * a string representing the values of the grid
+        """
         grid_string = ""
         for row in grid:
-            grid_string += " ".join(row) + "\n"
+            grid_string += " ".join([str(i) for i in row]) + "\n"
         return grid_string.strip("\n")
     
-    def convert_to_grid(self, bit_string):
+    def str_to_grid(self, bit_string):
+        """
+        PARAMETERS
+            * bit_string -> string representing a number in a given base
+        RETURN VALUES
+            * an 2D array of integers representing bit_string
+        WHAT DOES THIS FUNCTION DO?
+            * generates one permutation of a grid based on a given bit string
+        """
         return [
             [int(i) for i in num_string] for num_string in bit_string.split(" ")
         ]
     
     def generate_grid_perms(self):
         n = 3 ** (self._grid_size ** 2)
-        base3_int = BaseInt(3)
-        for num_str in base3_int.counter(n, self._grid_size, self._grid_size ** 2):
+        base_int = BaseInt(self._grid_size)
+        for num_str in base_int.counter(n, self._grid_size, self._grid_size ** 2):
             print("New Grid >>>>>")
-            print(self.get_str_grid(self.convert_to_grid(num_str)))
+            print(self.grid_to_str(self.str_to_grid(num_str)))
     
     def __repr__(self) -> str:
-        return self.get_str_grid(self._grid)
+        return self.grid_to_str(self._grid)
 
 if __name__ == "__main__":
     new_board = Board(3)
