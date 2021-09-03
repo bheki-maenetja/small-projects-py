@@ -91,15 +91,22 @@ class Board():
         ]
     
     def generate_grid_perms(self):
+        """
+        PARAMETERS
+            * None
+        RETURN VALUES
+            * None
+        WHAT DOES THIS FUNCTION DO?
+            * generates all possible configurations of a grid
+        """
         n = 3 ** (self._grid_size ** 2)
-        base_int = BaseInt(self._grid_size)
+        base_int = BaseInt(3)
         for num_str in base_int.counter(n, self._grid_size, self._grid_size ** 2):
-            print("New Grid >>>>>")
-            print(self.grid_to_str(self.str_to_grid(num_str)))
+            yield self.str_to_grid(num_str)
     
     def __repr__(self) -> str:
         return self.grid_to_str(self._grid)
 
 if __name__ == "__main__":
-    new_board = Board(3)
+    new_board = Board(1)
     new_board.generate_grid_perms()
