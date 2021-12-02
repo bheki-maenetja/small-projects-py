@@ -23,6 +23,4 @@ other_tree_dict = {
 if __name__ == "__main__":
     first_tree = Tree("a", first_tree_dict)
     other_tree = Tree("a", other_tree_dict)
-    print(other_tree.get_root().get_children())
     print(dfs_traversal(first_tree.get_root()))
-    print(dfs_traversal(other_tree.get_root()))
