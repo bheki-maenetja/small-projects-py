@@ -1,25 +1,28 @@
-from node import Node
+from node import Node, Tree
 from bfs import bfs_traversal
 from dfs import dfs_traversal
+from tree_traversals import in_order_traversal, pre_order_traversal, post_order_traversal
 
-a = Node('a')
-b = Node('b')
-c = Node('c')
-d = Node('d')
-e = Node('e')
-f = Node('f')
+first_tree_dict = {
+    "a": ("b", "c"),
+    "b": ("d", "e"),
+    "c": ("h", "i"),
+    "d": ("f", "g")
+}
 
-a.add_left_child(b)
-a.add_right_child(b)
+other_tree_dict = {
+    "a": ("b", "b"),
+    "b": ("c", "c"),
+    "c": ("d", "d"),
+    "d": ("e", "e"),
+    "e": ("f", "f")
+}
 
-b.add_left_child(c)
-b.add_right_child(c)
 
-c.add_left_child(d)
-c.add_right_child(d)
 
-d.add_left_child(e)
-d.add_right_child(e)
-
-e.add_left_child(f)
-e.add_right_child(f)
+if __name__ == "__main__":
+    first_tree = Tree("a", first_tree_dict)
+    other_tree = Tree("a", other_tree_dict)
+    print(other_tree.get_root().get_children())
+    print(dfs_traversal(first_tree.get_root()))
+    print(dfs_traversal(other_tree.get_root()))
